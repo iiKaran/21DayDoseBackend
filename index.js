@@ -9,10 +9,15 @@ require("dotenv").config();
 const PORT = process.env.PORT; 
 dbConnect();
 app.use(cors({
- origin:"https://dose-dq2t.onrender.com", 
+ origin:"https://64dd2be21215dd0933c882e7--inspiring-lokum-4f9e15.netlify.app", 
  Credentials:true,
 }))
 app.use(express.json()); 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://64dd2be21215dd0933c882e7--inspiring-lokum-4f9e15.netlify.app');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
 app.use("/api",entryRoutes);
 app.use("/api",userRoutes); 
 app.use("/api",adminRoutes)
