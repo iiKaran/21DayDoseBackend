@@ -9,7 +9,7 @@ require("dotenv").config();
 const PORT = process.env.PORT; 
 dbConnect();
 app.use(cors({
- origin:"http://localhost:3000", 
+ origin:"https://dose-dq2t.onrender.com", 
  Credentials:true,
 }))
 app.use(express.json()); 
